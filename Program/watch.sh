@@ -7,9 +7,9 @@ if [ "$#" -ne 3 ]; then
 fi
 
 # build all executables
-gcc ./Programs/Version1/prog04_v1.c -o prog04v1
-gcc ./Programs/Version2/prog04_v2.c -o prog04v2
-gcc ./Programs/Version3/prog04_v3.c -o prog04v3
+gcc ./progV1.c -o progV1
+gcc ./progV2.c -o progV2
+gcc ./progV3.c -o progV3
 
 watch_folder="$1"
 version_index="$2"
@@ -38,6 +38,6 @@ while true; do
         # check in folder and subfolders for .dat files and add them to array
         dat_files=($(find "$watch_folder" -type f -name "*.dat"))
 
-        "./prog04v$version_index" "$output_path" "${dat_files[@]}"
+        "./progV$version_index" "$output_path" "${dat_files[@]}"
     fi
 done
